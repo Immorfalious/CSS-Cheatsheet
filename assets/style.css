@@ -1,0 +1,177 @@
+:root {
+  --main-background: #363b3d;
+  --heading-color: #e732fff1;
+  --code-gradient: linear-gradient(to bottom, #7b21a581, #c64acc93);
+  --white-outlay: rgb(212, 212, 212);
+}
+
+body {
+  background-color: var(--main-background);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1.75rem auto;
+}
+
+h2 {
+  color: var(--heading-color);
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--heading-color);
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+.main-header > p {
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 4rem;
+  padding: 0 4rem;
+  color: var(--white-outlay);
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  outline: 2px dashed;
+  outline-offset: 2px;
+  padding: 1rem;
+  outline-color: var(--white-outlay);
+  min-height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: min-content;
+  border: 2px solid;
+  border-radius: 8px;
+  margin: -2.5rem 1rem 1px;
+  padding: 10px;
+  background-color: var(--main-background);
+  border-color: var(--white-outlay);
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover,
+.card:hover .card-header {
+  box-shadow: inset 0px 0px 10px var(--heading-color),
+    0 0 15px var(--heading-color);
+}
+
+.card-text {
+  display: flex;
+  position: relative;
+  margin: 1rem 0;
+  color: var(--heading-color);
+}
+
+.code-box {
+  display: flex;
+  position: relative;
+  min-height: 70%;
+  width: 100%;
+  background-image: var(--code-gradient);
+  color: var(--white-outlay);
+  border-radius: 8px;
+}
+
+.card-text > p {
+  display: flex;
+  position: relative;
+  min-height: fit-content;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card pre {
+  font-family: consolas;
+  line-height: 1.5;
+  align-items: center;
+  padding-left: 10px;
+}
+
+pre:active {
+  user-select: all;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 5rem 1rem 3rem;
+  gap: 2.5rem 1.5rem;
+}
+
+.card:nth-child(1) {
+  grid-area: flexrow;
+}
+
+.card:nth-child(2) {
+  grid-area: flexcolumn;
+}
+
+.card:nth-child(3) {
+  grid-area: csslayout;
+}
+
+.card:nth-child(4) {
+  grid-area: gradients;
+}
+
+.card:nth-child(5) {
+  grid-area: boxglows;
+}
+
+.card:nth-child(6) {
+  grid-area: overlay-card;
+}
+
+@media only screen and (min-width: 992px) {
+  .card-grid {
+    grid-template-areas:
+      "flexrow flexcolumn csslayout"
+      "gradients boxglows overlay-card";
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "flexrow flexcolumn"
+      "csslayout gradients"
+      "boxglows overlay-card";
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "flexrow"
+      "flexcolumn"
+      "csslayout"
+      "gradients"
+      "boxglows"
+      "overlay-card";
+  }
+}
